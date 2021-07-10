@@ -1,0 +1,104 @@
+JONATHAN AMIR
+FEBRUARY 4TH
+
+I PLEDGE MY HONOR THAT I HAVE ABIDED BY THE STEVENS HONOR SYSTEM
+
+UNCOMMENTED CODE AT THE BOTTOM OF DOCUMENT FOR EASY READING
+
+#PICOBOT CODE FOR EMPTY ROOM:
+
+# state 0 with nothing N: go one step N
+0 x*** -> N 0   
+
+# state 0 with something to the N: go W + into st 1 
+# ** This will crash if picobot has a wall to the W! **
+0 N*** -> W 1 
+
+#Get to top left corner and the to state 2
+1 **x* -> W 1
+
+#In state 1, if there is wall to the west, go south
+1 **W* -> S 2
+
+# state 2 with nothing to the S: go one step S
+2 ***x -> S 2   
+
+# state 2 with something to the S go to the East 1 and state 3
+2 ***S -> E 3
+
+#in state 3, if nothing to the north, go north
+3 x*** -> N 3
+#IF wall to the north, go east one and then south
+3 N*** -> E 2  
+
+
+#PICOBOT CODE FOR MAZE
+#IF NO RIGHT TURN AVAILABLE, GO NORTH
+0 XE** -> N 0
+#IF RIGHT TURN AVAILABLE, GO EAST
+0 *X** -> E 1 
+#IF ONLY LEFT TURN AVAILABLE, GO WEST
+0 NEX* -> W 3
+#IF NO TURN AVAILABLE, GO BACK SOUTH
+0 NEW* -> S 2 
+
+#IF NO RIGHT TURN AVAILABLE, GO EAST
+1 *X*S -> E 1
+#IF RIGHT TURN AVAILABLE, GO SOUTH
+1 ***X -> S 2
+#IF ONLY LEFT TURN AVAILABLE, GO NORTH
+1 XE*S -> N 0
+#IF NO TURN AVAILABLE, GO BACK WEST
+1 NE*S -> W 3
+
+#IF NO RIGHT TURN AVAILABLE, GO SOUTH
+2 **WX -> S 2
+#IF RIGHT TURN AVAILABLE, GO WEST
+2 **X* -> W 3
+#IF ONLY LEFT TURN AVAILABLE, GO EAST
+2 *XWS -> E 1
+#IF NO TURN AVAILABLE, GO BACK NORTH
+2 *EWS -> N 0
+
+#IF NO RIGHT TURN AVAILABLE, GO WEST
+3 N*X* -> W 3
+#IF RIGHT TURN AVAILABLE, GO NORTH
+3 X*** -> N 0
+#IF ONLY LEFT TURN AVAILABLE, GO SOUTH
+3 N*WX -> S 2
+#IF NO TURN AVAILABLE, GO BACK EAST
+3 N*WS -> E 1
+---------------------------------------------------------------
+UNCOMMENTED CODE:
+---------------------------------------------------------------
+#code for empty room
+0 x*** -> N 0   
+0 N*** -> W 1 
+1 **x* -> W 1
+1 **W* -> S 2
+2 ***x -> S 2   
+2 ***S -> E 3
+3 x*** -> N 3
+3 N*** -> E 2  
+
+#CODE FOR MAZE
+
+0 XE** -> N 0
+0 *X** -> E 1 
+0 NEX* -> W 3
+0 NEW* -> S 2 
+
+1 *X*S -> E 1
+1 ***X -> S 2
+1 XE*S -> N 0
+1 NE*S -> W 3
+
+2 **WX -> S 2
+2 **X* -> W 3
+2 *XWS -> E 1
+2 *EWS -> N 0
+
+3 N*X* -> W 3
+3 X*** -> N 0
+3 N*WX -> S 2
+3 N*WS -> E 1

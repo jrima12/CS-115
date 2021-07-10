@@ -1,0 +1,8 @@
+00 read r1       #user unput and counter
+01 add r1 1      # get to number n+1
+02 storen r2 0   # store 0 in r2 to print and increment
+03 write r2      #print content of r2
+04 add r2 1      #increment r2 by 1
+05 sub r1 1      # decrement r1 by 1
+06 jnezn r1 03   # if r1 is not zero, go back to printing from r2
+07 halt          # if r1 is zero, all the values have been printed, so stop program
